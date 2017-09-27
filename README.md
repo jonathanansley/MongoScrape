@@ -39,28 +39,40 @@ done
 8. request
 done
 
-9. **NOTE**: If you want to earn complete credit for your work, you must use all six of these packages in your assignment.
+9. **NOTE**: If you want to earn complete credit for your work,
+   you must use all six of these packages in your assignment.
 
-10. In order to deploy your project to Heroku, you must set up an mLab provision. mLab is remote MongoDB database that Heroku supports natively. Follow these steps to get it running:
+10. In order to deploy your project to Heroku,
+    you must set up an mLab provision.
+    mLab is remote MongoDB database that Heroku supports natively.
+    Follow these steps to get it running:
 
-11. Create a Heroku app in your project directory. 
+11. Create a Heroku app in your project directory.
 https://murmuring-refuge-76293.herokuapp.com/
 
-12. Run this command in your Terminal/Bash window: 
+12. Run this command in your Terminal/Bash window:
 
-    * `heroku addons:create mongolab`
+    * heroku addons:create mongolab
+done
 
     * This command will add the free mLab provision to your project.
 
-13. You'll need to find the URI string that connects Mongoose to mLab. Run this command to grab that string: 
+13. You'll need to find the URI string that connects Mongoose to mLab. Run this command to grab that string:
 
-    * `heroku config | grep MONGODB_URI`
+    * heroku config | grep MONGODB_URI
+MONGODB_URI: mongodb://heroku_3zcp9nm4:hm7iedo30v4ool1gl2gpfn4b72@ds149324.mlab.com:49324/heroku_3zcp9nm4
 
     * Notice the value that appears after `MONGODB_URI =>`. This is your URI string. Copy it to a document for safekeeping.
 
+
 14. When you’re ready to connect Mongoose with your remote database, simply paste the URI string as the lone argument of your `mongoose.connect()` function. That’s it!
 
-15. [Watch this demo of a possible submission](mongo-homework-demo.mov). See the deployed demo application [here](http://nyt-mongo-scraper.herokuapp.com/). 
+mongoose.connect(mongodb://heroku_3zcp9nm4:hm7iedo30v4ool1gl2gpfn4b72@ds149324.mlab.com:49324/heroku_3zcp9nm4);
+
+
+15. [Watch this demo of a possible submission](mongo-homework-demo.mov).
+See the deployed demo application
+http://nyt-mongo-scraper.herokuapp.com/
 
 16. Your site doesn't need to match the demo's style, but feel free to attempt something similar if you'd like. Otherwise, just be creative!
 
@@ -70,14 +82,16 @@ https://murmuring-refuge-76293.herokuapp.com/
 
 * Create an app that accomplishes the following:
 
-  1. Whenever a user visits your site, the app should scrape stories from a news outlet of your choice and display them for the user. Each scraped article should be saved to your application database. At a minimum, the app should scrape and display the following information for each article:
+  1. Whenever a user visits your site, the app should scrape stories from a news outlet of your choice and display them for the user.
+  Each scraped article should be saved to your application database.
+  At a minimum, the app should scrape and display the following information for each article:
 
      * Headline - the title of the article
 
      * Summary - a short summary of the article
 
      * URL - the url to the original article
-  
+
      * Feel free to add more content to your database (photos, bylines, and so on).
 
   2. Users should also be able to leave comments on the articles displayed and revisit them later. The comments should be saved to the database as well and associated with their articles. Users should also be able to delete comments left on articles. All stored comments should be visible to every user.
@@ -91,10 +105,10 @@ https://murmuring-refuge-76293.herokuapp.com/
 
 * Go back to Saturday's activities if you need a refresher on how to partner one model with another.
 
-* Whenever you scrape a site for stories, make sure an article isn't already represented in your database before saving it; we don't want duplicates. 
+* Whenever you scrape a site for stories, make sure an article isn't already represented in your database before saving it; we don't want duplicates.
 
-* Don't just clear out your database and populate it with scraped articles whenever a user accesses your site. 
-  
+* Don't just clear out your database and populate it with scraped articles whenever a user accesses your site.
+
   * If your app deletes stories every time someone visits, your users won't be able to see any comments except the ones that they post.
 
 
@@ -112,39 +126,14 @@ https://murmuring-refuge-76293.herokuapp.com/
 - - -
 
 ### Hosting on Heroku
-
-Now that we have a backend to our applications, we use Heroku for hosting. Please note that while **Heroku is free**, it will request credit card information if you have more than 5 applications at a time or are adding a database. 
-
-Please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details. 
+Now that we have a backend to our applications, we use Heroku for hosting.
 
 
 
-
-- - -
-
-### One Last Thing
-
-That goes threefold for this week: MongoDB and Mongoose compose a challenging data management system. If there's anything you find confusing about these technologies, don't hesitate to speak with someone from the Bootcamp team.
-
-
-
-
-### Team Members: 
+### Team Members:
 * Jonathan Ansley
 
 
 ### Links:
  * [GitHub Repository](https://github.com/jonathanansley/MongoScrape)
- * [Heroku](https://)
-
-
-<!-- 
-### Instructions for database (initial setup):
-Warning: This will drop any previous tables and delete any data.
-1. In MySQL workbench, SQL Pro, or similar program, run schema.sql. It will drop the shoe database (if it exists) and will create the "shoe" database.
-2. Go to bash and "npm start". That will have sequelize create the empty tables.
-3. In MySQL workbench, SQL Pro, or similar program, run "seeds.sql". That will insert 5 rows of sample data into the tables.
-
-Note: If you do not want to change your database each time you run "npm start", then go into server.js and change "force: true" to "force: false".
-
- -->
+ * [Heroku](https://murmuring-refuge-76293.herokuapp.com/)

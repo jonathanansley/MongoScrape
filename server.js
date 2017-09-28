@@ -6,12 +6,15 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+
 // Requiring our Note and Article models
 var Note = require("./models/Note.js");
 var Article = require("./models/Article.js");
+
 // Our scraping tools
 var request = require("request");
 var cheerio = require("cheerio");
+
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
@@ -29,8 +32,10 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-// mongoose.connect("mongodb://localhost:32769/week18day3mongoose");
-mongoose.connect('mongodb://heroku_3zcp9nm4:hm7iedo30v4ool1gl2gpfn4b72@ds149324.mlab.com:49324/heroku_3zcp9nm4');
+//mongoose.connect("mongodb://localhost:3000/week18day3mongoose");
+mongoose.connect("mongodb://localhost/mongoscrape");
+ //mongoose.connect("mongodb://localhost:32769/week18day3mongoose");
+//mongoose.connect('mongodb://heroku_3zcp9nm4:hm7iedo30v4ool1gl2gpfn4b72@ds149324.mlab.com:49324/heroku_3zcp9nm4');
 var db = mongoose.connection;
 
 // Show any mongoose errors
